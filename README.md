@@ -1,2 +1,2 @@
 # Patient-0
-Introduction to Pygame, building programming and python skills
+Introduction to Pygame, building general programming and python skills
