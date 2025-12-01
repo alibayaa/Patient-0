@@ -7,20 +7,30 @@ pygame.display.set_caption('Patient 0')
 clock = pygame.time.Clock()
 game_active = True
 
-background_surface = pygame.image.load('graphics/background.png').convert()
-ground_surface = pygame.image.load('graphics/floor.png').convert()
+# Floor
 
-scaled_bg = pygame.transform.scale(background_surface, (1000, 600))
+ground_surface = pygame.image.load('graphics/floor.png').convert()
 scaled_floor = pygame.transform.scale(ground_surface, (1000, 100))
+
+# Background
+
+background_surface = pygame.image.load('graphics/background.png').convert()
+scaled_bg = pygame.transform.scale(background_surface, (1000, 600))
+
+# Text
 
 text_font = pygame.font.Font('graphics/Pixeltype.ttf', 40)
 score_surface = text_font.render('Score:', False, 'darkslategray4')
 score_rect = score_surface.get_rect(center = (500, 50))
 
+# Slime
+
 slime1_surface = pygame.image.load('graphics/slime/slime1.png').convert_alpha()
 scaled_slime1 = pygame.transform.scale(slime1_surface, (175, 50))
 slime_rect = scaled_slime1.get_rect(midbottom = (1000, 500))
 slime_rect.size = (50, 50)
+
+# Player
 
 player_surface = pygame.image.load('graphics/player/playeridle.png').convert_alpha()
 scaled_playeridle = pygame.transform.scale(player_surface, (250, 125))
@@ -73,8 +83,7 @@ while True:
 
         # Collisions
     
-        if slime_rect.colliderect(player_rect):
-            game_active = False
+        
 
     else:
         screen.fill('Yellow')
