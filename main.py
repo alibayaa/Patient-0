@@ -20,8 +20,12 @@ scaled_bg = pygame.transform.scale(background_surface, (1000, 600))
 # Text
 
 text_font = pygame.font.Font('graphics/Pixeltype.ttf', 40)
-score_surface = text_font.render('Score:', False, 'darkslategray4')
+score_surface = text_font.render('Score: ', False, 'darkslategray4')
 score_rect = score_surface.get_rect(center = (500, 50))
+
+def display_score():
+    current_time = pygame.tick.get_ticks()
+    print(current_time)
 
 # Slime
 
@@ -83,10 +87,12 @@ while True:
 
         # Collisions
     
-        
-
-    else:
-        screen.fill('Yellow')
+        if slime_rect.colliderect(player_rect):
+            game_active = False
+            screen.fill('Yellow')
+    
+    
+    
 
         pygame.display.update()
         clock.tick(60)
