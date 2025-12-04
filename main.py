@@ -50,6 +50,8 @@ def obstacle_movement(obstacle_list):
 
             screen.blit(scaled_slime1, obstacle_rect)
         
+        obstacle_list = [obstacle for obstacle in obstacle_list if obstacle.x > -100]
+
         return obstacle_list
     else:
         return []
@@ -75,7 +77,7 @@ game_message_rect = game_message.get_rect(center = (500, 175))
 # Timer
 
 obstacle_timer = pygame.USEREVENT + 1
-pygame.time.set_timer(obstacle_timer, 1400)
+pygame.time.set_timer(obstacle_timer, 1500)
 
 while True:
 
@@ -109,12 +111,6 @@ while True:
         pygame.draw.rect(screen, 'darkslategrey', score_rect, 2)
         screen.blit(score_surface, (score_rect))
         score = display_score()
-        
-        # Slime
-
-        screen.blit(scaled_slime1, slime_rect)
-       # slime_rect.x -= 10
-       # if slime_rect.right <= 0: slime_rect.left = 1000
     
         # Player
 
